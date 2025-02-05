@@ -5,7 +5,7 @@ function App() {
   return (
     <>
       <VotingPanel />
-      <div className="fixed bottom-0 left-0 w-full overflow-hidden">
+      <div className="fixed -z-10 bottom-0 left-0 w-full overflow-hidden">
         <Wave />
       </div>
     </>
