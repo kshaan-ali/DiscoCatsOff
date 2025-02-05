@@ -1,2 +1,14 @@
+@import url("https://fonts.googleapis.com/css2?family=Bubblegum+Sans&family=Passion+One:wght@400;700;900&display=swap");
 @import "tailwindcss";
-@import url('https://fonts.googleapis.com/css2?family=Bubblegum+Sans&family=Passion+One:wght@400;700;900&display=swap');
+
+body {
+  @apply bg-[#5994b4];
+}
+
+.text-shadow {
+  text-shadow: 1px -1px 0 #78350f;
+}
+
+a,button{
+  cursor: pointer;
+}
