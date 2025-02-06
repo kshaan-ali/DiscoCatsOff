@@ -9,6 +9,11 @@ body {
   text-shadow: 1px -1px 0 #78350f;
 }
 
-a,button{
+a,
+button {
   cursor: pointer;
+}
+
+.f-border {
+  border-radius: 10% 10% 46% 48% / 10% 10% 30% 30% ;
 }
