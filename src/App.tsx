@@ -1,14 +1,15 @@
-import VotingPanel from "./components/VotingPanel";
-import Wave from "./svg/Wave";
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import TimeVaults from './pages/TimeVaults';
+import Navbar from './components/NavBar';
 
 function App() {
   return (
-    <>
-      <VotingPanel />
-      <div className="fixed -z-10 bottom-0 left-0 w-full overflow-hidden">
-        <Wave />
-      </div>
-    </>
+    <BrowserRouter>
+      <Navbar />
+      <Routes>
+        <Route index element={<TimeVaults/>} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 

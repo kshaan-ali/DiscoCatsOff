@@ -1,6 +1,6 @@
-import { TbBolt } from "react-icons/tb";
-import { TbPlayCardK } from "react-icons/tb";
-import { TbCoinRupeeFilled } from "react-icons/tb";
+import { TbBolt } from 'react-icons/tb';
+import { TbPlayCardK } from 'react-icons/tb';
+import { TbCoinRupeeFilled } from 'react-icons/tb';
 
 const VotingCard = ({
   title,
@@ -12,19 +12,19 @@ const VotingCard = ({
   metrics: string[];
 }) => {
   return (
-    <div className="flex-1 overflow-hidden flex flex-col justify-center items-center   bg-white rounded-2xl">
-      <h2 className="text-sm mb-2 w-full text-center  text-[#ae6231] bg-[#ffd3b6] f-border">
+    <div className="flex flex-1 flex-col items-center justify-center overflow-hidden rounded-2xl bg-white">
+      <h2 className="f-border mb-2 w-full bg-[#ffd3b6] text-center text-sm text-[#ae6231]">
         {title}
       </h2>
-      <div className="p-4 w-full flex flex-col justify-center items-center">
+      <div className="flex w-full flex-col items-center justify-center p-4">
         <img
           src="/cat.webp"
           alt=""
-          className="w-20 mix-blend-luminosity  aspect-square rounded-xl"
+          className="aspect-square w-20 rounded-xl mix-blend-luminosity"
         />
-        <ul className=" bg-[#fae4d6] items-center rounded-lg p-4 mt-2 text-sm w-full font-[Bubblegum_Sans] text-[#ae6231]  flex flex-col gap-2">
+        <ul className="mt-2 flex w-full flex-col items-center gap-2 rounded-lg bg-[#fae4d6] p-4 font-[Bubblegum_Sans] text-sm text-[#ae6231]">
           {metrics.map((metric, i) => (
-            <li key={i} className="font-bold flex gap-2">
+            <li key={i} className="flex gap-2 font-bold">
               <span>
                 {i === 0 ? (
                   <TbCoinRupeeFilled />
@@ -39,7 +39,7 @@ const VotingCard = ({
             </li>
           ))}
         </ul>
-        <button className="mt-2 shadow-[2px_4px_0px_theme(colors.amber.800)] font-bold bg-[#e84544] rounded-xl py-1 px-4 w-full text-white font-[Passion_one] text-center text-xl">
+        <button className="mt-2 w-full rounded-xl bg-[#e84544] px-4 py-1 text-center font-[Passion_one] text-xl font-bold text-white shadow-[2px_4px_0px_theme(colors.amber.800)]">
           Vote
         </button>
       </div>
