@@ -140,3 +140,6 @@ button {
     inset 0px 1.4px 6.98px 0 #dd8b57;
 }
 
+.active{
+  @apply hue-rotate-280;
+}

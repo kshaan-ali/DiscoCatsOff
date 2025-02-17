@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 import {
   Select,
@@ -9,31 +9,47 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select';
+import Soon from '@/components/ui/soon';
 
 export default function NavBar() {
-  const chains = ['Berachain', 'Ethereum', 'Binance']
+  const chains = ['Berachain', 'Ethereum', 'Binance'];
 
   return (
-    <nav>
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-[5vw] py-4">
+    <nav className='px-[5vw]'>
+      <div className="mx-auto flex max-w-7xl items-center justify-between  py-6">
         <div className="flex gap-7">
-          <Link
+          <NavLink
             to="/"
             className="font-Showcard text-center text-2xl leading-6 font-bold tracking-wider text-white uppercase duration-50 hover:scale-[1.01]"
           >
             Disco <br />
             Cats
-          </Link>
-          <div className="[&>a]:bg-cream [&>a]:text-chocolate [&>a]:border-orange [&>a]:font-Bubblegum flex items-center gap-2 [&>a]:flex [&>a]:h-[42px] [&>a]:items-center [&>a]:rounded-xl [&>a]:border-2 [&>a]:px-3 [&>a]:hover:hue-rotate-280">
-            <Link to="/">Time Vaults</Link>
-            <Link to="/">Liquid Launch</Link>
-            <Link to="/">PreSale Vaults</Link>
-            <Link to="/">Bribe Wars</Link>
+          </NavLink>
+          <div className="[&>a]:bg-cream [&>a]:text-chocolate [&>a]:border-orange [&>a]:font-Bubblegum flex items-center gap-2 [&>a]:relative [&>a]:flex [&>a]:h-[42px] [&>a]:items-center [&>a]:rounded-xl [&>a]:border-2 [&>a]:px-3 [&>a]:hover:hue-rotate-280">
+            <NavLink to="/">Time Vaults</NavLink>
+            <NavLink to="soon">
+              <Soon />
+              Liquid Launch
+            </NavLink>
+            <NavLink to="soon">
+              <Soon />
+              PreSale Vaults
+            </NavLink>
+            <NavLink to="soon">
+              <Soon />
+              Bribe Wars
+            </NavLink>
           </div>
         </div>
-        <div className="[&>button]:bg-cream flex items-center gap-2">
+        <div className="[&>button]:bg-cream [&>button]:border-light-orange [&>button]:text-chocolate flex items-center gap-2 [&>button]:rounded-xl [&>button]:border">
           <Select>
             <SelectTrigger>
+              <img
+                width="20px"
+                className="mx-2"
+                src="https://obya3wwefi.ufs.sh/f/vL3P6gZND4Zg2NwStXzI2X0sAlkHeonWU1ufcmjTZCFEQrBO"
+                alt="blockchain"
+              />
               <SelectValue placeholder="Berachain" />
             </SelectTrigger>
             <SelectContent>
