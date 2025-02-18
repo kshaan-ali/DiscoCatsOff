@@ -1,46 +1,47 @@
 const cardData: {
   title: string;
-  stats: { label: string; value: string }[];
+  image: string;
+  stats: {
+    earnings: string;
+    newAPR: string;
+    lockedInPeriod: string;
+  };
   total: string;
-  metrics: string[];
-  hasVote: boolean;
-  primeChoice: boolean;
+  price: string;
 }[] = [
   {
-    title: "Breadrome",
-    stats: [
-      { label: "Lending", value: "12%" },
-      { label: "Emissions", value: "4%" },
-      { label: "Bribes", value: "2%" },
-    ],
-    total: "10%",
-    metrics: ["$20,000", "3x", "15"],
-    hasVote: true,
-    primeChoice: true,
+    title: 'Breadrome Vault',
+    image: 'https://obya3wwefi.ufs.sh/f/vL3P6gZND4Zgk0k22aUecDBQfJuzqRPWyTwXspj01m3Li5nr',
+    stats: {
+      earnings: '14%',
+      newAPR: '0.5%',
+      lockedInPeriod: '30 days',
+    },
+    total: '10',
+    price: '$100',
   },
   {
-    title: "Super Money",
-    stats: [
-      { label: "Lending", value: "14%" },
-      { label: "Emissions", value: "2%" },
-      { label: "Bribes", value: "3%" },
-    ],
-    total: "14%",
-    metrics: ["$12,000", "1.5x", "25"],
-    hasVote: true,
-    primeChoice: true,
+    title: 'Breadrome Vault',
+    image: 'https://obya3wwefi.ufs.sh/f/vL3P6gZND4ZgnSMRMHrZbIPCng039uaFWQYG8AyrMzoeqsfw',
+    stats: {
+      earnings: '14%',
+      newAPR: '0.5%',
+      lockedInPeriod: '30 days',
+    },
+    total: '14',
+    price: '$100',
   },
   {
-    title: "BeraBorrow",
-    stats: [
-      { label: "Lending", value: "14%" },
-      { label: "Emissions", value: "5%" },
-      { label: "Bribes", value: "2%" },
-    ],
-    total: "11%",
-    metrics: ["$30,000", "1.5x", "N.A."],
-    hasVote: true,
-    primeChoice: false,
+    title: 'Berafrome Vault',
+    image: 'https://obya3wwefi.ufs.sh/f/vL3P6gZND4Zgk0k22aUecDBQfJuzqRPWyTwXspj01m3Li5nr',
+    stats: {
+      earnings: '14%',
+      newAPR: '0.5%',
+      lockedInPeriod: '30 days',
+    },
+    total: '11',
+    price: '$100',
   },
 ];
+
 export default cardData;

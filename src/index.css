@@ -104,6 +104,31 @@
   --color-silver: #c6c6c6;
   --color-amber: #ffb400;
   --color-saffron: #ffc134;
+  --color-yellow: #f9dd69;
+
+
+  --animate-accordion-down: accordion-down 0.2s ease-out;
+  --animate-accordion-up: accordion-up 0.2s ease-out;
+
+  @keyframes accordion-down {
+    from {
+      height: 0;
+    }
+
+    to {
+      height: var(--radix-accordion-content-height);
+    }
+  }
+
+  @keyframes accordion-up {
+    from {
+      height: var(--radix-accordion-content-height);
+    }
+
+    to {
+      height: 0;
+    }
+  }
 }
 
 @font-face {
@@ -134,12 +159,16 @@ button {
 }
 
 .shadow-inner-custom {
-  box-shadow: 
+  box-shadow:
     inset 1.4px -1.4px 6.98px 0 #dd8b57,
     inset 1.4px 0px 6.98px 0 #dd8b57,
     inset 0px 1.4px 6.98px 0 #dd8b57;
 }
 
-.active{
+.shadow-inner-custom2 {
+  box-shadow: inset -2px -2px 4px 0 rgba(148, 30, 30, 0.33);
+}
+
+.active {
   @apply hue-rotate-280;
 }
