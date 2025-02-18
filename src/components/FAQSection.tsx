@@ -11,7 +11,7 @@ export default function FAQSection() {
       type="single"
       collapsible
       defaultValue='item-1'
-      className="flex w-full flex-1 flex-col gap-3 justify-between"
+      className="flex w-full flex-1 flex-col gap-2 justify-between pb-[1px]"
     >
       <AccordionItem
         className="bg-cream border-gunmetal rounded-lg border"

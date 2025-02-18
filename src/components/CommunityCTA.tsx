@@ -2,6 +2,7 @@ export default function CommunityCTA() {
   return (
     <div className="bg-cream border-gunmetal flex md:max-w-96 flex-col justify-evenly gap-4 rounded-md border p-4 text-center">
       <img
+        loading="lazy"
         className="mx-auto"
         width="250px"
         src="https://obya3wwefi.ufs.sh/f/vL3P6gZND4ZgWqMiLgPfzldacmjP36eC45HQKwZTMG9kNu2h"

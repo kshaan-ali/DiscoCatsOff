@@ -18,7 +18,7 @@ export default function VaultCard({
   price: string;
 }) {
   return (
-    <div className="border-gunmetal relative max-w-[300px] w-full  shadow overflow-hidden rounded-xl border-1 bg-white">
+    <div className="border-gunmetal relative max-w-[300px] max-md:max-w-[250px] max-sm:max-w-[400px] w-full  shadow overflow-hidden rounded-xl border-1 bg-white">
       <h2 className="bg-yellow mb-2 flex w-full items-center justify-center gap-2 rounded-[10%_10%_46%_48%_/_10%_10%_30%_30%] py-1 text-center font-semibold text-black">
         {title}
         <AiFillInfoCircle className="text-white" />
