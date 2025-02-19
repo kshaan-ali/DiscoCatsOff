@@ -1,4 +1,5 @@
 import { AiFillInfoCircle } from 'react-icons/ai';
+import VaultDialogMenu from './VaultDialogMenu';
 
 export default function VaultCard({
   title,
@@ -18,8 +19,8 @@ export default function VaultCard({
   price: string;
 }) {
   return (
-    <div className="border-gunmetal relative max-w-[300px] max-md:max-w-[250px] max-sm:max-w-[400px] w-full  shadow overflow-hidden rounded-xl border-1 bg-white">
-      <h2 className="bg-yellow mb-2 flex w-full items-center justify-center gap-2 rounded-[10%_10%_46%_48%_/_10%_10%_30%_30%] py-1 text-center font-semibold text-black">
+    <div className="border-gunmetal relative w-full max-w-[300px] overflow-hidden rounded-xl border-1 bg-white shadow max-md:max-w-[250px] max-sm:max-w-[400px]">
+      <h2 className="bg-yellow mb-2 flex w-full items-center justify-center gap-2 rounded-[0%_0%_46%_48%_/_0%_0%_30%_30%] py-1 text-center font-semibold text-black">
         {title}
         <AiFillInfoCircle className="text-white" />
       </h2>
@@ -42,7 +43,7 @@ export default function VaultCard({
           {total}
         </div>
       </div>
-      <div className="mb-4 flex justify-center -mt-2">
+      <div className="-mt-2 mb-4 flex justify-center">
         <div
           style={{
             background: 'conic-gradient(#b91c1c 0% 65%, transparent 65% 100%)',
@@ -69,10 +70,7 @@ export default function VaultCard({
         <span>Locked-In Period:</span>
         <span className="text-sienna font-bold">{stats.lockedInPeriod}</span>
       </div>
-      <div className='m-4'>
-
-      <button className='uppercase hover:saturate-150 font-Bubblegum text-white bg-crimson rounded-xl w-full shadow-inner-custom2 border-1 border-gunmetal p-2 text-xl text-center' >Join the Vault</button>
-      </div>
+        <VaultDialogMenu />
     </div>
   );
 }
