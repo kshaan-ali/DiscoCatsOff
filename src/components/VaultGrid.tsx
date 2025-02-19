@@ -1,6 +1,6 @@
 import CatEar from '@/components/svg/CatEar';
 import VaultHeader from './VaultHeader';
-import cardData from './../lib/data.ts';
+import { cardData } from './../lib/data.ts';
 import VaultCard from './VaultCard.tsx';
 
 export default function VaultGrid() {
@@ -20,7 +20,7 @@ export default function VaultGrid() {
           <CatEar />
         </div>
         <VaultHeader />
-        <div className="flex flex-wrap gap-8  max-lg:gap-4 justify-evenly">
+        <div className="flex flex-wrap justify-evenly gap-8 max-lg:gap-4">
           {cardData.map((card, index) => (
             <VaultCard {...card} key={index} />
           ))}
