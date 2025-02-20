@@ -120,7 +120,7 @@ export default function NFTTimeLockComparison({
 
   return (
     <section className="px-[3vw] py-10">
-      <div className="mx-auto flex max-w-6xl items-center justify-between gap-10 max-lg:flex-col">
+      <div className="mx-auto flex max-w-6xl items-center justify-between max-lg:gap-4 gap-10 max-lg:flex-col">
         <VaultSection heading="Fixed NFT Time-Lock Vaults" features={fixedFeatures} />
         <div>{children}</div>
         <VaultSection heading="Flexible NFT Time-Lock Vaults" features={flexibleFeatures} />

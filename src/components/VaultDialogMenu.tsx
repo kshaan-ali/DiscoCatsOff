@@ -230,7 +230,6 @@ export default function VaultDialogMenu() {
                 </div>
               </div>
               <div className="bg-cream flex items-center justify-center gap-2 p-2 text-xs">
-                {' '}
                 <img
                   width="20px"
                   height="20px"

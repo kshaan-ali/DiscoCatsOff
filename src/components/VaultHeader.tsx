@@ -1,11 +1,11 @@
 export default function VaultHeader() {
   return (
     <>
-      <div className="flex gap-4 justify-between">
-        <h1 className="text-orange  font-Showcard text-4xl uppercase text-wrap">
-          Time-Lock <br className="  md:hidden"/> Vaults
+      <div className="flex justify-between gap-4">
+        <h1 className="text-orange font-Showcard text-4xl text-wrap uppercase">
+          Time-Lock <br className="md:hidden" /> Vaults
         </h1>
-        <div className="[&>span]:border-light-orange max-[518px]:hidden flex-1 w-full text-chocolate [&>span]:font-Bubblegum flex items-center justify-end gap-4 [&>*]:h-[30px] [&>*]:shrink-0 flex-wrap [&>*]:items-center [&>*]:rounded-lg [&>*]:px-4 [&>span]:flex [&>span]:gap-1 [&>span]:border [&>span]:bg-[#FFF2EA]">
+        <div className="[&>span]:border-light-orange text-chocolate [&>span]:font-Bubblegum flex w-full flex-1 flex-wrap items-center justify-end gap-4 max-[518px]:hidden [&>*]:h-[30px] [&>*]:shrink-0 [&>*]:items-center [&>*]:rounded-lg [&>*]:px-4 [&>span]:flex [&>span]:gap-1 [&>span]:border [&>span]:bg-[#FFF2EA]">
           <span>
             <img
               width="30px"
