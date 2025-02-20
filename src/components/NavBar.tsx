@@ -33,7 +33,7 @@ export default function NavBar() {
   const chains = ['Berachain', 'Ethereum', 'Binance'];
 
   return (
-    <nav className="px-[5vw]">
+    <nav className="px-[3vw]">
       <div className="mx-auto flex max-w-7xl items-center justify-between py-6">
         {/* Logo and Desktop Navigation */}
         <div className="flex gap-7 max-lg:gap-4">
@@ -60,8 +60,8 @@ export default function NavBar() {
         </div>
 
         {/* Chain Select, Connect Wallet & Manual Dropdown */}
-        <div className="max-[420px]:bg-cream bottom-0 left-0 z-30 flex items-center gap-2 max-[420px]:fixed max-[420px]:w-full max-[420px]:p-2 [&>button]:rounded-xl">
-          <div className="[&>button]:bg-cream [&>button]:border-light-orange [&>button]:text-chocolate max-[420px]:order-2 [&>button]:h-10 [&>button]:rounded-xl [&>button]:border [&>button]:px-1 [&>button]:pl-0 max-[420px]:[&>button]:w-18">
+        <div className="max-[550px]:bg-cream bottom-0 left-0 z-30 flex items-center gap-2 max-[550px]:fixed max-[550px]:w-full max-[550px]:p-2 [&>button]:rounded-xl">
+          <div className="[&>button]:bg-cream [&>button]:border-light-orange [&>button]:text-chocolate max-[550px]:order-2 [&>button]:h-10 [&>button]:rounded-xl [&>button]:border [&>button]:px-1 [&>button]:pl-0 max-[550px]:[&>button]:w-18">
             <Select>
               <SelectTrigger>
                 <img
@@ -72,10 +72,14 @@ export default function NavBar() {
                 />
                 <SelectValue placeholder="Berachain" />
               </SelectTrigger>
-              <SelectContent className=' border-1 border-gunmetal'>
+              <SelectContent className="border-gunmetal border-1">
                 <SelectGroup>
                   {chains.map((chain, index) => (
-                    <SelectItem  className='[&>*]:font-Bubblegum [&>*]:text-chocolate' key={index} value={chain}>
+                    <SelectItem
+                      className="[&>*]:font-Bubblegum [&>*]:text-chocolate"
+                      key={index}
+                      value={chain}
+                    >
                       {chain}
                     </SelectItem>
                   ))}
@@ -83,15 +87,15 @@ export default function NavBar() {
               </SelectContent>
             </Select>
           </div>
-          <a className="font-Bubblegum hover:bg-orange shadow-inner-custom bg-light-orange flex h-[42px] items-center rounded-xl px-2 text-center leading-6 font-bold tracking-wider text-nowrap text-white max-[420px]:order-1">
+          <a className="font-Bubblegum hover:bg-orange shadow-inner-custom bg-light-orange flex h-[42px] items-center rounded-xl px-2 text-center leading-6 font-bold tracking-wider text-nowrap text-white max-[550px]:order-1">
             Connect Wallet
           </a>
-          <div className="order-3 hidden flex-1 justify-end max-[420px]:flex">
+          <div className="order-3 hidden flex-1 justify-end max-[550px]:flex">
             <DropdownMenu>
               <DropdownMenuTrigger className="bg-cream aspect-squarejustify-center hidden h-10 items-center rounded-lg px-2 py-1 max-[870px]:flex">
                 <LuEllipsis size="25px" className="text-light-orange" />
               </DropdownMenuTrigger>
-              <DropdownMenuContent className="bg-cream border-gunmetal relative mx-[5vw] flex flex-col gap-2 rounded-xl border-2 py-6 pt-10 [&>div]:px-8">
+              <DropdownMenuContent className="bg-cream border-gunmetal relative mx-[3vw] flex flex-col gap-2 rounded-xl border-2 py-6 pt-10 [&>div]:px-8">
                 <DropdownMenuLabel className="bg-yellow absolute top-0 left-0 w-full rounded-[0%_0%_46%_48%_/_0%_0%_15%_15%] p-1 text-center">
                   Manual
                 </DropdownMenuLabel>
@@ -110,7 +114,7 @@ export default function NavBar() {
           <DropdownMenuTrigger className="bg-cream aspect-squarejustify-center hidden h-10 items-center rounded-lg px-2 py-1 max-[870px]:flex">
             <LuMenu size="25px" className="text-light-orange" />
           </DropdownMenuTrigger>
-          <DropdownMenuContent className="bg-cream border-gunmetal mx-[5vw] flex flex-col gap-4 rounded-xl border-2 py-6 [&>div]:px-8">
+          <DropdownMenuContent className="bg-cream border-gunmetal mx-[3vw] flex flex-col gap-4 rounded-xl border-2 py-6 [&>div]:px-8">
             {navLinks.map(({ label, to }) => (
               <DropdownMenuItem key={label}>
                 {to ? (

@@ -12,7 +12,7 @@ export default function TimeVaults() {
       <NFTTimeLockComparison>
         <MascotShowcase />
       </NFTTimeLockComparison>
-      <section className="px-[5vw] py-10">
+      <section className="px-[3vw] py-10">
         <div className="flex max-w-6xl gap-6 max-md:flex-col mx-auto">
           <FAQSection />
           <CommunityCTA />

@@ -5,7 +5,7 @@ import VaultCard from './VaultCard.tsx';
 
 export default function VaultGrid() {
   return (
-    <section className="px-[5vw] py-10 pt-20">
+    <section className="px-[3vw] py-10 pt-20">
       <div className="bg-cream border-saffron relative mx-auto max-w-[1100px] rounded-2xl border-4 p-6 max-md:px-4">
         <img
           width="100px"
