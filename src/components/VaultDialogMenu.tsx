@@ -17,10 +17,12 @@ import { LuCheck, LuZap } from 'react-icons/lu';
 
 import CaretDown from './svg/CaretDown';
 import AirDrop from './svg/AirDrop';
+import VaultYieldCard from './VaultYieldCard';
 
 import { vaultData } from '@/lib/data';
 import HourGlass from './svg/HourGlass';
 import { useState } from 'react';
+import Scale from './svg/Scale';
 
 export default function VaultDialogMenu() {
   const [quantity, setQuantity] = useState(1);
@@ -34,7 +36,7 @@ export default function VaultDialogMenu() {
           </button>
         </div>
       </DialogTrigger>
-      <DialogContent className="bg-cream max-md:p-4 [&>button]:hidden">
+      <DialogContent className="bg-cream max-[520px]:rounded-none max-[520px]:px-4 max-[520px]:py-12 md:p-10 [&>button]:hidden">
         <DialogHeader>
           <div className="flex items-center justify-between gap-4">
             <div className="flex items-center gap-2">
@@ -62,8 +64,8 @@ export default function VaultDialogMenu() {
                 <DropdownMenuTrigger className="bg-amber font-Teko flex items-center justify-center gap-1 rounded-full p-1 px-3">
                   Yield BD <CaretDown />
                 </DropdownMenuTrigger>
-                <DropdownMenuContent className="rounded-xl border-none bg-black p-4 text-white">
-                  Vault Yield last hour
+                <DropdownMenuContent className="flex gap-2 rounded-xl border-none bg-black text-white">
+                  <VaultYieldCard />
                 </DropdownMenuContent>
               </DropdownMenu>
               <a className="border-amber rounded-full border-2 p-2 max-sm:hidden">
@@ -93,10 +95,10 @@ export default function VaultDialogMenu() {
             </span>
           </DialogDescription>
         </DialogHeader>
-        <section className="flex gap-4 max-sm:flex-col-reverse">
-          <div className="flex-1 flex flex-col justify-end">
+        <section className="flex gap-4 max-[520px]:flex-col-reverse">
+          <div className="mt-9 flex flex-1 flex-col justify-end">
             {vaultData.isAirdropIncentivised && (
-              <div className="to-crimson from-crimson/50 flex items-center gap-2 rounded-xl bg-gradient-to-t p-2 text-white">
+              <div className="to-crimson from-crimson/50 mx-4 flex items-center gap-2 rounded-xl bg-gradient-to-t p-2 text-white">
                 <AirDrop />
                 <div>
                   <p>Points {vaultData.points}x</p>
@@ -107,11 +109,24 @@ export default function VaultDialogMenu() {
                 <LuCheck size="30px" className="ml-auto" />
               </div>
             )}
-            <div className="mt-4 flex flex-1 w-full gap-3">
+            <div className="mt-4 flex min-h-72 w-full flex-1 gap-3">
               <div className="flex flex-1 flex-col gap-3">
-                <div className="bg-gunmetal flex-1 rounded-xl"></div>
-                <div className="bg-gunmetal flex flex-1 items-center justify-center rounded-xl">
-                  <div className="flex items-center gap-2 text-white">
+                <div className="bg-gunmetal relative flex flex-1 flex-col items-center justify-end gap-2 rounded-xl p-4 text-white">
+                  <div className="absolute top-4 left-0 h-full w-full">
+                    <Scale />
+                  </div>
+                  <p className="font-Teko font-semibold">
+                    <span className="text-2xl">
+                      $ {vaultData.yieldGenerated}{' '}
+                    </span>
+                    {vaultData.yieldUnit}
+                  </p>
+                  <p className="text-center text-sm font-semibold">
+                    Yeild Generated
+                  </p>
+                </div>
+                <div className="bg-gunmetal flex flex-1 items-center justify-center rounded-xl p-4">
+                  <div className="flex items-center justify-center gap-2 text-white">
                     <HourGlass />
                     <div>
                       <p className="font-Teko text-3xl font-semibold">
@@ -144,7 +159,7 @@ export default function VaultDialogMenu() {
             </div>
           </div>
           <div className="flex flex-1 flex-col gap-3">
-            <p className=" text-center font-semibold">
+            <p className="text-center font-semibold">
               Vault Closes In: {vaultData.vaultClosesIn}
             </p>
             <div className="border-gunmetal flex items-center justify-between gap-2 rounded-xl border bg-white p-2">
