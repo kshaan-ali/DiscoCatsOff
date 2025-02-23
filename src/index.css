@@ -132,7 +132,7 @@
 
 @font-face {
   font-family: 'Showcard Gothic';
-  src: url('./assets/fonts/SHOWG.woff2');
+  src: url('/fonts/SHOWG.woff2');
 }
 
 @theme {

@@ -2,14 +2,14 @@ export default function VaultHeader() {
   return (
     <>
       <div className="flex justify-between gap-4">
-        <h1 className="text-orange font-Showcard text-4xl text-wrap uppercase">
-          Time-Lock <br className="md:hidden" /> Vaults
+        <h1 className="text-orange max-md:text-3xl max-sm:text-2xl text-nowrap font-Showcard text-4xl uppercase">
+          Time-Lock Vaults
         </h1>
         <div className="[&>span]:border-light-orange text-chocolate [&>span]:font-Bubblegum flex w-full flex-1 flex-wrap items-center justify-end gap-4 max-[518px]:hidden [&>*]:h-[30px] [&>*]:shrink-0 [&>*]:items-center [&>*]:rounded-lg [&>*]:px-4 [&>span]:flex [&>span]:gap-1 [&>span]:border [&>span]:bg-[#FFF2EA]">
           <span>
             <img
               width="30px"
-              src="https://obya3wwefi.ufs.sh/f/vL3P6gZND4ZgURprkr8IL2B0g8xfsXybVJ47aqFWNprcn1oO"
+              src="/images/shibaCoin.webp"
               alt="token"
             />
             Token
@@ -18,7 +18,7 @@ export default function VaultHeader() {
             <img
               width="18px"
               className="p-[1px] shadow"
-              src="https://obya3wwefi.ufs.sh/f/vL3P6gZND4ZgnCSyQpwrZbIPCng039uaFWQYG8AyrMzoeqsf"
+              src="/images/danceCat.webp"
               alt="NFTs"
             />
             NFTs
@@ -26,7 +26,7 @@ export default function VaultHeader() {
           <span>
             <img
               width="30px"
-              src="https://obya3wwefi.ufs.sh/f/vL3P6gZND4ZgnCGtZazrZbIPCng039uaFWQYG8AyrMzoeqsf"
+              src="/images/lightingBolt.webp"
               alt="points"
             />
             Points

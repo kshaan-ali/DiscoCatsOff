@@ -28,7 +28,7 @@ export default function VaultCard({
         <div className="border-gunmetal bg-cream text-sienna flex items-center rounded-xl border-1 px-3 py-1 font-bold">
           <img
             width="20px"
-            src="https://obya3wwefi.ufs.sh/f/vL3P6gZND4Zg2wLcgFI2X0sAlkHeonWU1ufcmjTZCFEQrBOz"
+            src="/images/blueCoin.webp"
             alt="coin"
           />
           {price}
@@ -37,7 +37,7 @@ export default function VaultCard({
           <img
             width="17px"
             className="p-[1px] shadow"
-            src="https://obya3wwefi.ufs.sh/f/vL3P6gZND4ZgnCSyQpwrZbIPCng039uaFWQYG8AyrMzoeqsf"
+            src="/images/danceCat.webp"
             alt="total"
           />
           {total}

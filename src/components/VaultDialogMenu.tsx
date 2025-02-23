@@ -71,15 +71,15 @@ export default function VaultDialogMenu() {
               <a className="border-amber rounded-full border-2 p-2 max-sm:hidden">
                 <img
                   width="15px"
-                  src="https://obya3wwefi.ufs.sh/f/vL3P6gZND4ZgsKjDQhubLcmiQNDCSaGvJPfHTonMlghOK9Fe"
-                  alt=""
+                  src="/images/info.webp"
+                  alt="info"
                 />
               </a>
               <a className="bg-amber rounded-full p-2 max-sm:hidden">
                 <img
                   width="15px"
-                  src="https://obya3wwefi.ufs.sh/f/vL3P6gZND4ZgWN2CaDfzldacmjP36eC45HQKwZTMG9kNu2hX"
-                  alt=""
+                  src="/images/gear.webp"
+                  alt="setting"
                 />
               </a>
             </div>
@@ -167,7 +167,7 @@ export default function VaultDialogMenu() {
                 <img
                   width="30px"
                   className="p-[1px] shadow"
-                  src="https://obya3wwefi.ufs.sh/f/vL3P6gZND4ZgnCSyQpwrZbIPCng039uaFWQYG8AyrMzoeqsf"
+                  src="/images/danceCat.webp"
                   alt="NFTs"
                 />
                 <div>
@@ -181,7 +181,7 @@ export default function VaultDialogMenu() {
               </div>
               <img
                 width="30px"
-                src="https://obya3wwefi.ufs.sh/f/vL3P6gZND4ZgnCGtZazrZbIPCng039uaFWQYG8AyrMzoeqsf"
+                src="/images/lightingBolt.webp"
                 alt="points"
               />
             </div>
@@ -248,7 +248,7 @@ export default function VaultDialogMenu() {
                 <img
                   width="20px"
                   height="20px"
-                  src="https://obya3wwefi.ufs.sh/f/vL3P6gZND4ZgsKjDQhubLcmiQNDCSaGvJPfHTonMlghOK9Fe"
+                  src="/images/info.webp"
                 />
                 You will be able to claim your initial funds along with the
                 yield generated after the lock-up period.

@@ -11,8 +11,7 @@ const cardData: {
 }[] = [
   {
     title: 'Breadrome Vault',
-    image:
-      'https://obya3wwefi.ufs.sh/f/vL3P6gZND4Zgk0k22aUecDBQfJuzqRPWyTwXspj01m3Li5nr',
+    image: '/images/blackCard.webp',
     stats: {
       earnings: '14%',
       newAPR: '0.5%',
@@ -23,8 +22,7 @@ const cardData: {
   },
   {
     title: 'Breadrome Vault',
-    image:
-      'https://obya3wwefi.ufs.sh/f/vL3P6gZND4ZgnSMRMHrZbIPCng039uaFWQYG8AyrMzoeqsfw',
+    image: '/images/whiteCard.webp',
     stats: {
       earnings: '14%',
       newAPR: '0.5%',
@@ -35,8 +33,7 @@ const cardData: {
   },
   {
     title: 'Berafrome Vault',
-    image:
-      'https://obya3wwefi.ufs.sh/f/vL3P6gZND4Zgk0k22aUecDBQfJuzqRPWyTwXspj01m3Li5nr',
+    image: '/images/blackCard.webp',
     stats: {
       earnings: '14%',
       newAPR: '0.5%',

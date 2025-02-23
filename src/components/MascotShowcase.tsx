@@ -5,7 +5,7 @@ export default function MascotShowcase() {
         loading="lazy"
         width="270px"
         className="shadow-amber shadow-[0_0_180px] rounded-[45px]"
-        src="https://obya3wwefi.ufs.sh/f/vL3P6gZND4ZguZSwRDx2SOCHYoqNxsLIQcmwrGvTleVPzMRj"
+        src="/images/discoCat.webp"
         alt="showcase cat"
       />
     </div>

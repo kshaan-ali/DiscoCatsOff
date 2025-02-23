@@ -93,7 +93,7 @@ export default function NFTTimeLockComparison({
       icon: (
         <img
           width="32px"
-          src="https://obya3wwefi.ufs.sh/f/vL3P6gZND4ZgzFe3c85xSPFsXHiNl8Mu9wdB0KVJEgOcTpev"
+          src="/images/tradingCard.webp"
           alt="plant"
         />
       ),
@@ -104,7 +104,7 @@ export default function NFTTimeLockComparison({
       icon: (
         <img
           width="32px"
-          src="https://obya3wwefi.ufs.sh/f/vL3P6gZND4ZgMa83QjHNLYm1lFtkQV0xvg8iaSy3sCPquZA4"
+          src="/images/plant.webp"
           alt="plant"
         />
       ),

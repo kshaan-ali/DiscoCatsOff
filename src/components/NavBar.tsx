@@ -57,17 +57,19 @@ export default function NavBar() {
         </div>
 
         {/* Chain Select, Connect Wallet & Manual Dropdown */}
-        <div className="max-[550px]:bg-cream bottom-0 left-0 z-30 flex items-center gap-2 max-[550px]:fixed max-[550px]:w-full max-[550px]:p-2  max-[550px]:px-6 [&>button]:rounded-xl">
-          <div className="[&>button]:bg-cream [&>button]:border-light-orange [&>button]:text-chocolate max-[550px]:order-2 [&>button]:h-10 [&>button]:rounded-xl [&>button]:border [&>button]:px-1 [&>button]:pl-0 max-[550px]:[&>button]:w-18">
+        <div className="max-[550px]:bg-cream bottom-0 left-0 z-30 flex items-center gap-2 max-[550px]:fixed max-[550px]:w-full max-[550px]:p-2 max-[550px]:px-6 [&>button]:rounded-xl">
+          <div className="[&>button]:bg-cream [&>button]:border-light-orange [&>button]:text-chocolate max-[550px]:order-2 [&>button]:h-10 [&>button]:rounded-xl [&>button]:border [&>button]:px-1 [&>button]:pl-0 [&>button]:font-Bubblegum">
             <Select>
               <SelectTrigger>
                 <img
                   width="20px"
-                  className="mx-2"
-                  src="https://obya3wwefi.ufs.sh/f/vL3P6gZND4Zg2NwStXzI2X0sAlkHeonWU1ufcmjTZCFEQrBO"
+                  className="mx-2 max-[550px]:mr-0"
+                  src="/images/chain.webp"
                   alt="blockchain"
                 />
-                <SelectValue placeholder="Berachain" />
+                <div className="max-[550px]:hidden [&>*]:font-Bubblegum">
+                  <SelectValue placeholder="Berachain" />
+                </div>
               </SelectTrigger>
               <SelectContent className="border-gunmetal border-1">
                 <SelectGroup>
@@ -89,16 +91,16 @@ export default function NavBar() {
           </a>
           <div className="order-3 hidden flex-1 justify-end max-[550px]:flex">
             <DropdownMenu>
-              <DropdownMenuTrigger className="bg-cream border-amber border aspect-squarejustify-center hidden h-10 items-center rounded-xl px-2 py-1 max-[870px]:flex">
+              <DropdownMenuTrigger className="bg-cream border-light-orange aspect-squarejustify-center hidden h-10 items-center rounded-xl border px-2 py-1 max-[870px]:flex">
                 <LuEllipsis size="25px" className="text-light-orange" />
               </DropdownMenuTrigger>
               <DropdownMenuContent className="bg-cream border-gunmetal relative mx-[3vw] flex flex-col rounded-xl border-2 py-6 pt-12 [&>div]:px-8">
-                <DropdownMenuLabel className="bg-yellow absolute top-0 left-0 w-full pt-4 font-bold rounded-[0%_0%_46%_48%_/_0%_0%_15%_15%] p-1 text-center">
+                <DropdownMenuLabel className="bg-yellow absolute top-0 left-0 w-full rounded-[0%_0%_46%_48%_/_0%_0%_15%_15%] p-1 pt-4 text-center font-bold">
                   Manual
                 </DropdownMenuLabel>
                 {manualLinks.map((item) => (
                   <DropdownMenuItem key={item}>
-                    <a className='text-center font-semibold w-full'>{item}</a>
+                    <a className="w-full text-center font-semibold">{item}</a>
                   </DropdownMenuItem>
                 ))}
               </DropdownMenuContent>
@@ -108,10 +110,10 @@ export default function NavBar() {
 
         {/* Mobile Navigation Dropdown */}
         <DropdownMenu>
-          <DropdownMenuTrigger className="bg-cream aspect-squarejustify-center hidden h-10 items-center rounded-xl px-2 py-1 max-[870px]:flex">
+          <DropdownMenuTrigger className="bg-cream aspect-square justify-center hidden h-10 items-center rounded-xl px-2 py-1 max-[870px]:flex">
             <LuMenu size="25px" className="text-light-orange" />
           </DropdownMenuTrigger>
-          <DropdownMenuContent className="bg-cream border-gunmetal mx-[3vw] flex flex-col gap-2 rounded-2xl border-2 py-6 [&>div]:px-6">
+          <DropdownMenuContent className="bg-cream border-gunmetal mx-[3vw] flex flex-col gap-4 rounded-2xl border-2 py-6 [&>div]:px-6">
             {navLinks.map(({ label, to }) => (
               <DropdownMenuItem key={label}>
                 {to ? (

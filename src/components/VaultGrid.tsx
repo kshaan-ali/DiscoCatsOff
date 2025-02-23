@@ -10,7 +10,7 @@ export default function VaultGrid() {
         <img
           width="100px"
           className="absolute -top-7 left-1/2 -z-10 -translate-x-1/2 -translate-y-1/2 transform"
-          src="https://obya3wwefi.ufs.sh/f/vL3P6gZND4ZgvVvOhpZND4Zg3JqVyuPAd16FmjCkSWzpT8R9"
+          src="/images/welcomeCat.webp"
           alt="Welcome Cat"
         />
         <div className="absolute -top-10 left-[10%] -z-10 scale-x-[-1] transform">
