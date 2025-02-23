@@ -10,8 +10,8 @@ export default function FAQSection() {
     <Accordion
       type="single"
       collapsible
-      defaultValue='item-1'
-      className="flex w-full flex-1 flex-col gap-2 justify-between pb-[1px]"
+      defaultValue="item-1"
+      className="flex w-full flex-1 flex-col justify-between gap-2 pb-[1px]"
     >
       <AccordionItem
         className="bg-cream border-gunmetal rounded-lg border"
@@ -67,6 +67,20 @@ export default function FAQSection() {
           To participate, acquire one of our Crypto NFTs through our launch
           platform. After purchase, simply follow the instructions to lock your
           NFT in the vault and start earning yield automatically.
+        </AccordionContent>
+      </AccordionItem>
+
+      <AccordionItem
+        className="bg-cream border-gunmetal rounded-lg border"
+        value="item-5"
+      >
+        <AccordionTrigger className="text-md p-4 font-semibold">
+          How can I track my earnings?
+        </AccordionTrigger>
+        <AccordionContent className="p-4">
+          You can track your NFT’s yield in real-time via our dashboard, which
+          updates as rewards accumulate. You can also check the underlying smart
+          contract for transparent transaction records.
         </AccordionContent>
       </AccordionItem>
     </Accordion>

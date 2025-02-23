@@ -21,9 +21,9 @@ export default function Footer() {
             <CarouselItem className="bg-amber" key={index}>
               <div>
                 <img
-                  className="rounded-2xl w-full max-md:h-32"
+                  className="w-full rounded-2xl max-md:h-32"
                   loading="lazy"
-                  src="/images/banner.webp" 
+                  src="/images/banner.webp"
                   alt="banner"
                 />
               </div>

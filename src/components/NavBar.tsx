@@ -51,14 +51,14 @@ export default function NavBar() {
                   <Soon />
                   {label}
                 </a>
-              ),
+              )
             )}
           </div>
         </div>
 
         {/* Chain Select, Connect Wallet & Manual Dropdown */}
         <div className="max-[550px]:bg-cream bottom-0 left-0 z-30 flex items-center gap-2 max-[550px]:fixed max-[550px]:w-full max-[550px]:p-2 max-[550px]:px-6 [&>button]:rounded-xl">
-          <div className="[&>button]:bg-cream [&>button]:border-light-orange [&>button]:text-chocolate max-[550px]:order-2 [&>button]:h-10 [&>button]:rounded-xl [&>button]:border [&>button]:px-1 [&>button]:pl-0 [&>button]:font-Bubblegum">
+          <div className="[&>button]:bg-cream [&>button]:border-light-orange [&>button]:text-chocolate [&>button]:font-Bubblegum max-[550px]:order-2 [&>button]:h-10 [&>button]:rounded-xl [&>button]:border [&>button]:px-1 [&>button]:pl-0">
             <Select>
               <SelectTrigger>
                 <img
@@ -67,7 +67,7 @@ export default function NavBar() {
                   src="/images/chain.webp"
                   alt="blockchain"
                 />
-                <div className="max-[550px]:hidden [&>*]:font-Bubblegum">
+                <div className="[&>*]:font-Bubblegum max-[550px]:hidden">
                   <SelectValue placeholder="Berachain" />
                 </div>
               </SelectTrigger>
@@ -110,7 +110,7 @@ export default function NavBar() {
 
         {/* Mobile Navigation Dropdown */}
         <DropdownMenu>
-          <DropdownMenuTrigger className="bg-cream aspect-square justify-center hidden h-10 items-center rounded-xl px-2 py-1 max-[870px]:flex">
+          <DropdownMenuTrigger className="bg-cream hidden aspect-square h-10 items-center justify-center rounded-xl px-2 py-1 max-[870px]:flex">
             <LuMenu size="25px" className="text-light-orange" />
           </DropdownMenuTrigger>
           <DropdownMenuContent className="bg-cream border-gunmetal mx-[3vw] flex flex-col gap-4 rounded-2xl border-2 py-6 [&>div]:px-6">

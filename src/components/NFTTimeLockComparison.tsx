@@ -40,7 +40,7 @@ const FeatureItem = ({ feature }: { feature: Feature }) => (
 );
 
 const VaultSection = ({ heading, features }: VaultSectionProps) => (
-  <div className='max-lg:flex-1 max-lg:w-full'>
+  <div className="max-lg:w-full max-lg:flex-1">
     <h1 className="text-gunmetal border-gunmetal border bg-[#F4F1D0] px-8 py-3 font-semibold">
       {heading}
     </h1>
@@ -68,7 +68,7 @@ export default function NFTTimeLockComparison({
         />
       ),
       title: 'Tradable Position',
-      description: "Its not tradable",
+      description: 'Its not tradable',
     },
     {
       icon: (
@@ -90,24 +90,12 @@ export default function NFTTimeLockComparison({
 
   const flexibleFeatures: Feature[] = [
     {
-      icon: (
-        <img
-          width="32px"
-          src="/images/tradingCard.webp"
-          alt="plant"
-        />
-      ),
+      icon: <img width="32px" src="/images/tradingCard.webp" alt="plant" />,
       title: 'Tradable Position',
       description: 'Liquid NFT is tradable',
     },
     {
-      icon: (
-        <img
-          width="32px"
-          src="/images/plant.webp"
-          alt="plant"
-        />
-      ),
+      icon: <img width="32px" src="/images/plant.webp" alt="plant" />,
       title: 'Stable Yeild',
       description: 'Yeild - 5+ Sources',
     },
@@ -120,12 +108,17 @@ export default function NFTTimeLockComparison({
 
   return (
     <section className="px-[3vw] py-10">
-      <div className="mx-auto flex max-w-6xl items-center justify-between max-lg:gap-4 gap-10 max-lg:flex-col">
-        <VaultSection heading="Fixed NFT Time-Lock Vaults" features={fixedFeatures} />
+      <div className="mx-auto flex max-w-6xl items-center justify-between gap-10 max-lg:flex-col max-lg:gap-4">
+        <VaultSection
+          heading="Fixed NFT Time-Lock Vaults"
+          features={fixedFeatures}
+        />
         <div>{children}</div>
-        <VaultSection heading="Flexible NFT Time-Lock Vaults" features={flexibleFeatures} />
+        <VaultSection
+          heading="Flexible NFT Time-Lock Vaults"
+          features={flexibleFeatures}
+        />
       </div>
     </section>
   );
 }
-

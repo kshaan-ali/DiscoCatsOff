@@ -7,7 +7,7 @@ function App() {
     <BrowserRouter>
       <Navbar />
       <Routes>
-        <Route index element={<TimeVaults/>} />
+        <Route index element={<TimeVaults />} />
       </Routes>
     </BrowserRouter>
   );

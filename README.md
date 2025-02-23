@@ -5,8 +5,8 @@ _Discover the groove with DiscoCats!_
 ## Todo
 
 - [x] Time Vault Page
-- [ ] Image Optimization
-- [ ] Better file structure
+- [x] Image Optimization
+- [x] Better file structure
 - [x] CI pipeline
 - [ ] Deployment
 

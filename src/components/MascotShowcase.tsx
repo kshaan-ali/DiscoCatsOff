@@ -1,10 +1,10 @@
 export default function MascotShowcase() {
   return (
-    <div className="p-2 border-white border-3 rounded-[48px]">
+    <div className="rounded-[48px] border-3 border-white p-2">
       <img
         loading="lazy"
         width="270px"
-        className="shadow-amber shadow-[0_0_180px] rounded-[45px]"
+        className="shadow-amber rounded-[45px] shadow-[0_0_180px]"
         src="/images/discoCat.webp"
         alt="showcase cat"
       />

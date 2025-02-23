@@ -1,6 +1,6 @@
 export default function CommunityCTA() {
   return (
-    <div className="bg-cream border-gunmetal flex md:max-w-96 flex-col justify-evenly gap-2 rounded-md border p-4 text-center">
+    <div className="bg-cream border-gunmetal flex flex-col justify-evenly gap-2 rounded-md border p-4 text-center md:max-w-96">
       <img
         loading="lazy"
         className="mx-auto"
@@ -13,7 +13,7 @@ export default function CommunityCTA() {
         End-to-end payments and financial management in a single solution. Meet
         the right platform to help realize.
       </p>
-      <button className="font-Bubblegum border-gunmetal bg-yellow hover:-hue-rotate-15 border p-3">
+      <button className="font-Bubblegum border-gunmetal bg-yellow border p-3 hover:-hue-rotate-15">
         Join the Cats
       </button>
     </div>

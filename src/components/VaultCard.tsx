@@ -1,5 +1,5 @@
 import { AiFillInfoCircle } from 'react-icons/ai';
-import VaultDialogMenu from './VaultDialogMenu';
+import VaultDialog from './VaultDialog';
 
 export default function VaultCard({
   title,
@@ -26,11 +26,7 @@ export default function VaultCard({
       </h2>
       <div className="flex justify-between px-2">
         <div className="border-gunmetal bg-cream text-sienna flex items-center rounded-xl border-1 px-3 py-1 font-bold">
-          <img
-            width="20px"
-            src="/images/blueCoin.webp"
-            alt="coin"
-          />
+          <img width="20px" src="/images/blueCoin.webp" alt="coin" />
           {price}
         </div>
         <div className="border-gunmetal text-sienna bg-cream flex items-center gap-2 rounded-xl border-1 px-3 py-1 font-bold">
@@ -70,7 +66,7 @@ export default function VaultCard({
         <span>Locked-In Period:</span>
         <span className="text-sienna font-bold">{stats.lockedInPeriod}</span>
       </div>
-        <VaultDialogMenu />
+      <VaultDialog />
     </div>
   );
 }
