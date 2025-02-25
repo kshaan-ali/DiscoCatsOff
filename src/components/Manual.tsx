@@ -133,9 +133,11 @@ export default function Manual() {
         );
       case 3:
         return (
-          <div className="flex flex-col items-center gap-4 [&>*]:px-4 pb-4">
-            <div className='bg-[#ADCB67] w-full p-4 rounded-md'>
-              <h1 className='text-center text-white font-Bubblegum text-3xl'>You’ve Been Cat-verted! </h1>
+          <div className="flex flex-col items-center gap-4 pb-4 [&>*]:px-4">
+            <div className="w-full rounded-md bg-[#ADCB67] p-4">
+              <h1 className="font-Bubblegum text-center text-3xl text-white">
+                You’ve Been Cat-verted!{' '}
+              </h1>
             </div>
             <img src="/images/sleepyCat.webp" alt="" />
             <p className="max-w-72 text-center">
@@ -144,8 +146,10 @@ export default function Manual() {
               and all the juicy perks.
             </p>
 
-            <button className="bg-yellow flex-1 rounded-md border px-6 font-semibold border-black p-1 shadow-[0_4px_4px_#BFBFBF] max-md:p-2">
-              <DialogClose className="w-full">Scratch That—You’re Ready! 🐾</DialogClose>
+            <button onClick={() => setCurrentPage(0)}>
+              <DialogClose className="bg-yellow flex-1 rounded-md border border-black p-1 px-6 font-semibold shadow-[0_4px_4px_#BFBFBF] max-md:p-2">
+                Scratch That—You’re Ready! 🐾
+              </DialogClose>
             </button>
           </div>
         );

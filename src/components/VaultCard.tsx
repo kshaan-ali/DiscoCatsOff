@@ -33,7 +33,7 @@ export default function VaultCard({
               <AiFillInfoCircle className="text-white" />
             </a>
           </HoverCardTrigger>
-          <HoverCardContent className="bg-yellow w-[250px] rounded-xl border-gunmetal border">
+          <HoverCardContent className="bg-yellow border-gunmetal w-[250px] rounded-xl border">
             <p className="text-center">
               View details on rewards, lock periods, and liquidity options on
               clicking join the vault
