@@ -15,7 +15,8 @@ import {
 } from '@/components/ui/select';
 import Soon from '@/components/ui/soon';
 import { LuEllipsis, LuMenu } from 'react-icons/lu';
-import { DropdownMenuLabel } from '@radix-ui/react-dropdown-menu';
+import Manual from '@/components/Manual';
+import { Dialog, DialogTrigger } from '@/components/ui/dialog';
 
 const navLinks = [
   { label: 'Time Vaults', to: '/' },
@@ -95,9 +96,15 @@ export default function NavBar() {
                 <LuEllipsis size="25px" className="text-light-orange" />
               </DropdownMenuTrigger>
               <DropdownMenuContent className="bg-cream border-gunmetal relative mx-[3vw] flex flex-col rounded-xl border-2 py-6 pt-12 [&>div]:px-8">
-                <DropdownMenuLabel className="bg-yellow absolute top-0 left-0 w-full rounded-[0%_0%_46%_48%_/_0%_0%_15%_15%] p-1 pt-4 text-center font-bold">
-                  Manual
-                </DropdownMenuLabel>
+                <Dialog>
+                  <DialogTrigger
+                    asChild
+                    className="bg-yellow hover:!bg-yellow/90 px-auto absolute top-0 left-0 w-full cursor-pointer justify-center rounded-b-lg p-1 pt-4 !text-center font-bold"
+                  >
+                    <div>Manual</div>
+                  </DialogTrigger>
+                  <Manual />
+                </Dialog>
                 {manualLinks.map((item) => (
                   <DropdownMenuItem key={item}>
                     <a className="w-full text-center font-semibold">{item}</a>

@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog';
+import { Dialog, DialogTrigger } from '@/components/ui/dialog';
+import { DialogContent } from '@/components/ui/dialogCustom';
 import { VaultHeader } from './VaultHeader';
 import { VaultMetrics } from './VaultMetrics';
 import { VaultActions } from './VaultActions';

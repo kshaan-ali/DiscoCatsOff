@@ -36,15 +36,12 @@ export default function VaultYieldCard() {
         <h2 className="font-Teko font-semibold">Vault Yield</h2>
         <p className="text-xs">(last hour)</p>
         <p className="flex items-center gap-2">
-          {' '}
           <span className="bg-amber inline-block h-3 w-3"></span>Lending
         </p>
         <p className="flex items-center gap-2">
-          {' '}
           <span className="inline-block h-3 w-3 bg-white"></span>Bribes
         </p>
         <p className="flex items-center gap-2">
-          {' '}
           <span className="bg-amber inline-block h-3 w-3"></span>Vault Fees
         </p>
       </div>
