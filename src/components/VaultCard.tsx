@@ -12,9 +12,13 @@ export default function VaultCard({
   stats,
   total,
   price,
+  proxyaddress,
+  tokenAddress
 }: {
   title: string;
   image: string;
+  proxyaddress:string;
+  tokenAddress:string;
   stats: {
     earnings: string;
     newAPR: string;
@@ -83,7 +87,7 @@ export default function VaultCard({
         <span>Locked-In Period:</span>
         <span className="text-sienna font-bold">{stats.lockedInPeriod}</span>
       </div>
-      <VaultDialog />
+      <VaultDialog proxyaddress={proxyaddress} tokenAddress={tokenAddress} />
     </div>
   );
 }

@@ -17,6 +17,7 @@ import Soon from '@/components/ui/soon';
 import { LuEllipsis, LuMenu } from 'react-icons/lu';
 import Manual from '@/components/Manual';
 import { Dialog, DialogTrigger } from '@/components/ui/dialog';
+import ConnectButton from './connectButton';
 
 const navLinks = [
   { label: 'Time Vaults', to: '/' },
@@ -88,7 +89,7 @@ export default function NavBar() {
             </Select>
           </div>
           <a className="font-Bubblegum hover:bg-orange shadow-inner-custom bg-light-orange flex h-[42px] items-center rounded-xl px-2 text-center leading-6 font-bold tracking-wider text-nowrap text-white max-[550px]:order-1">
-            Connect Wallet
+            <ConnectButton></ConnectButton>
           </a>
           <div className="order-3 hidden flex-1 justify-end max-[550px]:flex">
             <DropdownMenu>

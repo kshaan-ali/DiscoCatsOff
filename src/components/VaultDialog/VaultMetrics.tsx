@@ -2,6 +2,7 @@ import { LuZap, LuCheck } from 'react-icons/lu';
 import AirDrop from '../svg/AirDrop';
 import HourGlass from '../svg/HourGlass';
 import Scale from '../svg/Scale';
+import { ethers } from 'ethers';
 
 interface VaultMetricsProps {
   vaultData: typeof import('@/lib/data').vaultData;
@@ -27,7 +28,7 @@ export function VaultMetrics({ vaultData }: VaultMetricsProps) {
               <Scale />
             </div>
             <p className="font-Teko font-semibold">
-              <span className="text-2xl">$ {vaultData.yieldGenerated} </span>
+              <span className="text-2xl">$ { ethers.formatUnits(vaultData.yieldGenerated,18) } </span>
               {vaultData.yieldUnit}
             </p>
             <p className="text-center text-sm font-semibold">Yield Generated</p>
