@@ -1,12 +1,12 @@
-export const alchemyUrl="https://monad-testnet.g.alchemy.com/v2/CgqGts8iN3NIN2mk49FWtYUG8AykEPK_"
-export const reOwnProjectId='bd58c4e651f4553eefbea7aae341f7aa'
+export const alchemyUrl="https://monad-testnet.g.alchemy.com/v2/CgqGts8iN3NIN2mk49FWtYUG8AykEPK_"//env
+export const reOwnProjectId='bd58c4e651f4553eefbea7aae341f7aa'//env
 
 export const proxyContractAddress='0x473F1Ae447CdCa9f7C4DEC87a1224Eb0d550CFA3'
 export const v2='0x138916B488683f47E8eD0f617231375C7F3CCa92'
 export const v2foundry='0x08b9195595614B4ADBedd9fd6321747Bc46E3187'
 export const usdcContractAddress='0x24b3d12eb92304571e95A42B03d058d1e911aEAd'
 
-export const backendApi='http://localhost:5000/'
+export const backendApi='http://localhost:5000/'//env
 
 export const nftAbi=[
 	{
