@@ -4,22 +4,25 @@ import VaultHeader from './VaultHeader';
 import VaultCard from './VaultCard.tsx';
 import { useAppKitAccount } from '@reown/appkit/react';
 import { useEffect, useState } from 'react';
+import axios from 'axios';
+import { backendApi } from '@/lib/web3Config.ts';
+import { VaultData } from '@/lib/data.ts';
 // import {  JsonRpcProvider } from "ethers";
-import {  proxyContractAddress, usdcContractAddress } from '@/lib/web3Config.ts';
+// import {  proxyContractAddress, usdcContractAddress } from '@/lib/web3Config.ts';
 
-export interface cardData{
-  title: string;
-  image: string;
-  proxyaddress:string;
-  tokenAddress:string;
-  stats: {
-    earnings: string;
-    newAPR: string;
-    lockedInPeriod: string;
-  };
-  total: string;
-  price: string;
-}
+// export interface cardData{
+//   title: string;
+//   image: string;
+//   proxyaddress:string;
+//   tokenAddress:string;
+//   stats: {
+//     earnings: string;
+//     newAPR: string;
+//     lockedInPeriod: string;
+//   };
+//   total: string;
+//   price: string;
+// }
 // = [
 //   {
 //     title: 'Breadrome Vault',
@@ -58,31 +61,7 @@ export interface cardData{
   // },
 // ];
 
-export interface VaultData {
-  title: string;
-  type: string;
-  vaultName: string;
-  points: number;
-  isAirdropIncentivised: boolean;
-  yieldGenerated: number;
-  yieldUnit: string;
-  timeLock: number; // in days
-  backingRatio: number;
-  backingPercentage: number;
-  vaultClosesIn: string;
-  vaultInfo: {
-    amount: number;
-    pricePerUnit: number;
-    currency: string;
-  };
-  vaultSupply: {
-    current: number;
-    total: number;
-  };
-  balance: number;
-  depositAmount: number;
-  claimOpensIn: string;
-}
+
 
 
 
@@ -92,31 +71,14 @@ export interface VaultData {
 export default function VaultGrid() {
   const { address, isConnected } = useAppKitAccount()
   // const { walletProvider }: { walletProvider: any } =useAppKitProvider("eip155");
-  const [cardData,setCardData]=useState<cardData[]|null>(null)
+  const [cardData,setCardData]=useState<VaultData[]>([])
 
   useEffect(()=>{
     async function code() {
       //first all vaults address will be fetch via backkend
-      const dbData=[{
-        title: 'Breadrome Vault',
-        image: '/images/blackCard.webp',
-        proxyaddress:proxyContractAddress,
-        tokenAddress:usdcContractAddress,
-        stats: {
-          earnings: '14%',
-          newAPR: '0.5%',
-          lockedInPeriod: '30 days',
-        },
-        total: '1000',
-        price: '$100',
-      },]
-      let tempData:any[]=[];
-      dbData.map((i)=>{
-        console.log(i)
-        tempData.push(i)
-        console.log(tempData)
-      })
-      setCardData(tempData)
+      const dbData:any=await axios.get(`${backendApi}vaults/`)
+      console.log(dbData.data)
+      setCardData(dbData.data)
       // const provider = new JsonRpcProvider(alchemyUrl);
       
 
