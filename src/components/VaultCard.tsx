@@ -8,8 +8,8 @@ import {
 import { VaultData } from '@/lib/data';
 
 import { useAppKitAccount, useAppKitProvider } from '@reown/appkit/react';
-import { BrowserProvider, Contract } from 'ethers';
-import {  timeVaultV1Abi } from '@/lib/web3Config';
+import { BrowserProvider, Contract, ethers } from 'ethers';
+import {  alchemyUrl, timeVaultV1Abi } from '@/lib/web3Config';
 import { useEffect, useState } from 'react';
 
 export default function VaultCard(
@@ -25,14 +25,16 @@ export default function VaultCard(
   useEffect(() => {
    
     async function code() {
-      if (isConnected) {
-        const ethersProvider = new BrowserProvider(walletProvider);
-        const signer = await ethersProvider.getSigner();
+      // if (isConnected) {
+        // const ethersProvider = new BrowserProvider(walletProvider);
+        const provider = new ethers.JsonRpcProvider(alchemyUrl)
+
+        // const signer = await ethersProvider.getSigner();
 
         const proxycontract = new Contract(
           vaultData.proxyaddress,
           timeVaultV1Abi,
-          signer
+          provider
         );
         //joining time,claiming period tiotal nft limit , current nft count,price
         //withdraw &deposit, yeild generated
@@ -44,8 +46,8 @@ export default function VaultCard(
         const yieldGenerated = 0
         const nftPrice = await proxycontract.nftPrice();
 
-        console.log('nft address', nftAddress);
-        console.log('vault balance', balance);
+        console.log('nft address', claimingPeriod);
+        console.log('vault balance', joiningPeriod);
         
         setvaultDataTemp((prevVaultData:VaultData) => ({
           ...prevVaultData, // Copy previous state
@@ -70,7 +72,7 @@ export default function VaultCard(
         if(vaultDataTemp){
           console.log(vaultDataTemp)
         }
-      }
+      // }
     }
     code();
     

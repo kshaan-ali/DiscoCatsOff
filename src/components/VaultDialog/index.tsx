@@ -13,66 +13,9 @@ export default function VaultDialog({vaultData}:{vaultData:VaultData}) {
  
   const [quantity, setQuantity] = useState(1);
   const [isDepositing, setIsDepositing] = useState(true);
-  // const { address, isConnected } = useAppKitAccount();
-  // const { walletProvider }: { walletProvider: any } =
-  //   useAppKitProvider('eip155');
-  // const [vaultDataTemp, setvaultDataTemp] = useState<any>(vaultData);
+ 
 
-  // useEffect(() => {
-   
-  //   async function code() {
-  //     if (isConnected) {
-  //       const ethersProvider = new BrowserProvider(walletProvider);
-  //       const signer = await ethersProvider.getSigner();
-
-  //       const proxycontract = new Contract(
-  //         vaultData.proxyaddress,
-  //         timeVaultV1Abi,
-  //         signer
-  //       );
-  //       //joining time,claiming period tiotal nft limit , current nft count,price
-  //       //withdraw &deposit, yeild generated
-  //       const balance = await proxycontract.totalFunds();
-  //       const nftAddress = await proxycontract.nftAddress();
-  //       const nftCount = await proxycontract.getNftCount();
-  //       const claimingPeriod = await proxycontract.claimingPeriod();
-  //       const joiningPeriod = await proxycontract.joiningPeriod();
-  //       const yieldGenerated = 0
-  //       const nftPrice = await proxycontract.nftPrice();
-
-  //       console.log('nft address', nftAddress);
-  //       console.log('vault balance', balance);
-        
-  //       setvaultDataTemp((prevVaultData:VaultData) => ({
-  //         ...prevVaultData, // Copy previous state
-  //         balance:balance,
-  //         claimOpensIn: claimingPeriod.toString(),
-  //         vaultClosesIn: joiningPeriod.toString(),
-  //         vaultSupply: {
-  //           ...prevVaultData?.vaultSupply,
-  //           current: nftCount,
-            
-            
-  //         },
-  //         vaultInfo: {
-  //           ...prevVaultData?.vaultInfo,
-            
-  //           pricePerUnit: nftPrice,
-  //         },
-  //         yieldGenerated:yieldGenerated,
-  //         nftAddress:nftAddress
-  //       }));
-
-  //       if(vaultDataTemp){
-  //         console.log(vaultDataTemp)
-  //       }
-  //     }
-  //   }
-  //   code();
-    
-  // }, [address, isConnected]);
-
-  if (vaultData) {
+  if (vaultData.nftAddress) {
     return (
       <Dialog>
         <DialogTrigger asChild>

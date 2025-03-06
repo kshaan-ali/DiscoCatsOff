@@ -3,12 +3,11 @@ import AirDrop from '../svg/AirDrop';
 import HourGlass from '../svg/HourGlass';
 import Scale from '../svg/Scale';
 import { ethers } from 'ethers';
+import { VaultData } from '@/lib/data';
 
-interface VaultMetricsProps {
-  vaultData: typeof import('@/lib/data').vaultData;
-}
 
-export function VaultMetrics({ vaultData }: VaultMetricsProps) {
+
+export function VaultMetrics({ vaultData }: {vaultData:VaultData}) {
   return (
     <div className="mt-9 flex flex-1 flex-col justify-end">
       {vaultData.isAirdropIncentivised && (
@@ -38,7 +37,7 @@ export function VaultMetrics({ vaultData }: VaultMetricsProps) {
               <HourGlass />
               <div>
                 <p className="font-Teko text-3xl font-semibold">
-                  {vaultData.timeLock}D
+                  {vaultData.stats.lockedInPeriod}D
                 </p>
                 <p>Time-Lock</p>
               </div>

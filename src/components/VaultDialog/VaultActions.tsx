@@ -1,5 +1,5 @@
 import { VaultData } from '@/lib/data';
-import { timeVaultV1Abi, tokenAbi } from '@/lib/web3Config';
+import { alchemyUrl, timeVaultV1Abi, tokenAbi } from '@/lib/web3Config';
 import { useAppKitAccount, useAppKitProvider } from '@reown/appkit/react';
 import { BrowserProvider, Contract, ethers } from 'ethers';
 import { useEffect, useState } from 'react';
@@ -27,32 +27,32 @@ export function VaultActions({
 
   useEffect(() => {
     async function code() {
-      if (isConnected) {
-        const ethersProvider = new BrowserProvider(walletProvider);
-        const signer = await ethersProvider.getSigner();
+      // if (isConnected) {
+      // const ethersProvider = new BrowserProvider(walletProvider);
+      // const signer = await ethersProvider.getSigner();
+      const provider = new ethers.JsonRpcProvider(alchemyUrl);
+      const proxycontract = new Contract(
+        vaultData.proxyaddress,
+        timeVaultV1Abi,
+        provider
+      );
 
-        const proxycontract = new Contract(
-          vaultData.proxyaddress,
-          timeVaultV1Abi,
-          signer
-        );
-
-        const unixTime = Math.floor(Date.now() / 1000);
-        const _state = await proxycontract.getState();
-        if (_state == 0) {
-          console.log(Number(vaultData.vaultClosesIn) - unixTime);
-          console.log((Number(vaultData.vaultClosesIn) - unixTime) / 86400);
-        }
-        setEpoch(unixTime);
-        setstate(_state);
-        console.log(_state);
+      const unixTime = Math.floor(Date.now() / 1000);
+      const _state = await proxycontract.getState();
+      if (_state == 0) {
+        console.log(Number(vaultData.vaultClosesIn) - unixTime);
+        console.log((Number(vaultData.vaultClosesIn) - unixTime) / 86400);
       }
+      setEpoch(unixTime);
+      setstate(_state);
+      console.log(_state);
+      // }
     }
     code();
   });
   return (
     <div className="flex flex-1 flex-col gap-3">
-      {state == 0 && (
+      {state == 0 && epoch != 0 && (
         <p className="text-center font-semibold">
           Vault Closes In:{' '}
           {Math.floor((Number(vaultData.vaultClosesIn) - epoch) / 86400)} Days{' '}
@@ -65,10 +65,7 @@ export function VaultActions({
         </p>
       )}
       {state == 2 && (
-        <p className="text-center font-semibold">
-          Yielded Funds:{' '}
-          
-        </p>
+        <p className="text-center font-semibold">Yielded Funds: </p>
       )}
       <div className="border-gunmetal flex items-center justify-between gap-2 rounded-xl border bg-white p-2">
         <div className="flex items-center gap-2">
@@ -96,6 +93,12 @@ export function VaultActions({
           {vaultData.vaultInfo.amount}
         </span>
       </div>
+      {state == 0 && epoch != 0 && (
+        <p className="text-center text-sm select-none text-red-500">
+          Nft Cap per Address:{vaultData.vaultInfo.nftLimitPerAddress}
+          
+        </p>
+      )}
       <div className="border-gunmetal flex justify-between rounded-lg border bg-white p-1">
         <button onClick={() => setQuantity(quantity - 1)} className="px-2">
           -
@@ -105,6 +108,7 @@ export function VaultActions({
           +
         </button>
       </div>
+      
       <p className="-my-3 text-end text-sm">
         Balance: {ethers.formatUnits(vaultData.balance, 18)}
       </p>
@@ -165,7 +169,11 @@ export function VaultActions({
                   tokenAbi,
                   signer
                 );
+                if(vaultData.vaultInfo.nftLimitPerAddress<quantity){
+                  alert("max cap reached")
+                }else{
 
+                
                 const tx = await tokencontract.approve(
                   proxycontract,
                   (
@@ -179,7 +187,7 @@ export function VaultActions({
                   if (conf2) {
                     alert('vault purchased');
                   }
-                }
+                }}
               }
             }}
             className="bg-amber my-1 p-1"
@@ -187,18 +195,26 @@ export function VaultActions({
             Deposit
           </button>
         ) : (
-          <div>Joining period Over </div>
+          <div className="bg-amber my-1 flex justify-center p-1">
+            Joining period Over{' '}
+          </div>
         )}
-        <button className="bg-amber p-1">
-          Claim Opens in:{' '}
-          {Math.floor((Number(vaultData.claimOpensIn) - epoch) / 86400)} Days{' '}
-          {Math.floor(
-            ((Number(vaultData.claimOpensIn) - epoch) % 86400) / 3600
-          )}{' '}
-          Hours{' '}
-          {Math.floor(((Number(vaultData.claimOpensIn) - epoch) % 3600) / 60)}{' '}
-          Mins
-        </button>
+        {state != 2 ? (
+          <div className="bg-amber p-1 flex justify-center">
+            Claim Opens in:{' '}
+            {Math.floor((Number(vaultData.claimOpensIn) - epoch) / 86400)} Days{' '}
+            {Math.floor(
+              ((Number(vaultData.claimOpensIn) - epoch) % 86400) / 3600
+            )}{' '}
+            Hours{' '}
+            {Math.floor(((Number(vaultData.claimOpensIn) - epoch) % 3600) / 60)}{' '}
+            Mins
+          </div>
+        ) : (
+          <button className="bg-amber p-1">
+            Claim Your Funds
+          </button>
+        )}
       </div>
     </div>
   );
