@@ -1,5 +1,5 @@
 import { VaultData } from '@/lib/data';
-import { alchemyUrl, timeVaultV1Abi, tokenAbi } from '@/lib/web3Config';
+import { alchemyUrl, nftAbi, timeVaultV1Abi, tokenAbi } from '@/lib/web3Config';
 import { useAppKitAccount, useAppKitProvider } from '@reown/appkit/react';
 import { BrowserProvider, Contract, ethers } from 'ethers';
 import { useEffect, useState } from 'react';
@@ -64,9 +64,9 @@ export function VaultActions({
           Mins
         </p>
       )}
-      {state == 2 && (
-        <p className="text-center font-semibold">Yielded Funds: </p>
-      )}
+      {/* {state == 2 && (
+        <p className="text-center font-semibold">Yielded Funds:{vaultData.yieldGenerated} </p>
+      )} */}
       <div className="border-gunmetal flex items-center justify-between gap-2 rounded-xl border bg-white p-2">
         <div className="flex items-center gap-2">
           <img
@@ -94,9 +94,8 @@ export function VaultActions({
         </span>
       </div>
       {state == 0 && epoch != 0 && (
-        <p className="text-center text-sm select-none text-red-500">
+        <p className="text-center text-sm text-red-500 select-none">
           Nft Cap per Address:{vaultData.vaultInfo.nftLimitPerAddress}
-          
         </p>
       )}
       <div className="border-gunmetal flex justify-between rounded-lg border bg-white p-1">
@@ -108,7 +107,7 @@ export function VaultActions({
           +
         </button>
       </div>
-      
+
       <p className="-my-3 text-end text-sm">
         Balance: {ethers.formatUnits(vaultData.balance, 18)}
       </p>
@@ -169,25 +168,24 @@ export function VaultActions({
                   tokenAbi,
                   signer
                 );
-                if(vaultData.vaultInfo.nftLimitPerAddress<quantity){
-                  alert("max cap reached")
-                }else{
-
-                
-                const tx = await tokencontract.approve(
-                  proxycontract,
-                  (
-                    quantity * Number(vaultData.vaultInfo.pricePerUnit)
-                  ).toString()
-                );
-                const conf = await tx.wait();
-                if (conf) {
-                  const tx2 = await proxycontract.joinVault(quantity);
-                  const conf2 = await tx2.wait();
-                  if (conf2) {
-                    alert('vault purchased');
+                if (vaultData.vaultInfo.nftLimitPerAddress < quantity) {
+                  alert('max cap reached');
+                } else {
+                  const tx = await tokencontract.approve(
+                    proxycontract,
+                    (
+                      quantity * Number(vaultData.vaultInfo.pricePerUnit)
+                    ).toString()
+                  );
+                  const conf = await tx.wait();
+                  if (conf) {
+                    const tx2 = await proxycontract.joinVault(quantity);
+                    const conf2 = await tx2.wait();
+                    if (conf2) {
+                      alert('vault purchased');
+                    }
                   }
-                }}
+                }
               }
             }}
             className="bg-amber my-1 p-1"
@@ -200,7 +198,7 @@ export function VaultActions({
           </div>
         )}
         {state != 2 ? (
-          <div className="bg-amber p-1 flex justify-center">
+          <div className="bg-amber flex justify-center p-1">
             Claim Opens in:{' '}
             {Math.floor((Number(vaultData.claimOpensIn) - epoch) / 86400)} Days{' '}
             {Math.floor(
@@ -211,7 +209,39 @@ export function VaultActions({
             Mins
           </div>
         ) : (
-          <button className="bg-amber p-1">
+          <button
+            onClick={async () => {
+              if (isConnected) {
+                const ethersProvider = new BrowserProvider(walletProvider);
+                const signer = await ethersProvider.getSigner();
+
+                const proxycontract = new Contract(
+                  vaultData.proxyaddress,
+                  timeVaultV1Abi,
+                  signer
+                );
+                const nftContract = new Contract(
+                  vaultData.nftAddress,
+                  nftAbi,
+                  signer
+                );
+
+                const tx2 = await nftContract.setApprovalForAll(
+                  vaultData.proxyaddress,
+                  true
+                );
+                const conf2 = await tx2.wait();
+                if (conf2) {
+                  const tx = await proxycontract.claimBack();
+                  const conf = await tx.wait();
+                  if (conf) {
+                    alert('funds withdrawn');
+                  }
+                }
+              }
+            }}
+            className="bg-amber p-1"
+          >
             Claim Your Funds
           </button>
         )}

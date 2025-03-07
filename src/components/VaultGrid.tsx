@@ -7,23 +7,7 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { backendApi } from '@/lib/web3Config.ts';
 import { VaultData } from '@/lib/data.ts';
-// import {  JsonRpcProvider } from "ethers";
-// import {  proxyContractAddress, usdcContractAddress } from '@/lib/web3Config.ts';
 
-// export interface cardData{
-//   title: string;
-//   image: string;
-//   proxyaddress:string;
-//   tokenAddress:string;
-//   stats: {
-//     earnings: string;
-//     newAPR: string;
-//     lockedInPeriod: string;
-//   };
-//   total: string;
-//   price: string;
-// }
-// = [
 //   {
 //     title: 'Breadrome Vault',
 //     image: '/images/blackCard.webp',

@@ -8,6 +8,7 @@ import { VaultData } from '@/lib/data';
 
 
 export function VaultMetrics({ vaultData }: {vaultData:VaultData}) {
+  console.log(vaultData.yieldGenerated)
   return (
     <div className="mt-9 flex flex-1 flex-col justify-end">
       {vaultData.isAirdropIncentivised && (

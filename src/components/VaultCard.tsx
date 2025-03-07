@@ -7,8 +7,8 @@ import {
 } from '@/components/ui/hover-card';
 import { VaultData } from '@/lib/data';
 
-import { useAppKitAccount, useAppKitProvider } from '@reown/appkit/react';
-import { BrowserProvider, Contract, ethers } from 'ethers';
+import { useAppKitAccount } from '@reown/appkit/react';
+import {  Contract, ethers } from 'ethers';
 import {  alchemyUrl, timeVaultV1Abi } from '@/lib/web3Config';
 import { useEffect, useState } from 'react';
 
@@ -18,20 +18,33 @@ export default function VaultCard(
 
 
   const { address, isConnected } = useAppKitAccount();
-  const { walletProvider }: { walletProvider: any } =
-    useAppKitProvider('eip155');
+  // const { walletProvider }: { walletProvider: any } =
+  //   useAppKitProvider('eip155');
   const [vaultDataTemp, setvaultDataTemp] = useState<any>(vaultData);
 
   useEffect(() => {
+    let proxycontract:Contract;
+    // async function event() {
+
+    //   const provider = new ethers.JsonRpcProvider(alchemyUrl)
+
+        
+    //      proxycontract = new Contract(
+    //       vaultData.proxyaddress,
+    //       timeVaultV1Abi,
+    //       provider
+    //     );
+    //     proxycontract.on("joinVaultEvent", code);
+    //     proxycontract.on("claimedNft",code);
+    // }
+    // event()
    
     async function code() {
-      // if (isConnected) {
-        // const ethersProvider = new BrowserProvider(walletProvider);
+      
         const provider = new ethers.JsonRpcProvider(alchemyUrl)
 
-        // const signer = await ethersProvider.getSigner();
-
-        const proxycontract = new Contract(
+        
+         proxycontract = new Contract(
           vaultData.proxyaddress,
           timeVaultV1Abi,
           provider
@@ -43,11 +56,20 @@ export default function VaultCard(
         const nftCount = await proxycontract.getNftCount();
         const claimingPeriod = await proxycontract.claimingPeriod();
         const joiningPeriod = await proxycontract.joiningPeriod();
-        const yieldGenerated = 0
+        const yieldedFunds = await proxycontract.yieldedFunds();
+        const totalFunds = await proxycontract.totalFunds();
+        let yieldGenerated:any;
+        if(yieldedFunds>=totalFunds){
+          yieldGenerated=await proxycontract.yieldGenerated();
+        }else{
+          yieldGenerated=0
+
+        }
         const nftPrice = await proxycontract.nftPrice();
 
-        console.log('nft address', claimingPeriod);
-        console.log('vault balance', joiningPeriod);
+        console.log('nft address', yieldedFunds);
+        console.log('vault balance', totalFunds);
+        console.log('vault balance', yieldGenerated);
         
         setvaultDataTemp((prevVaultData:VaultData) => ({
           ...prevVaultData, // Copy previous state
@@ -75,6 +97,10 @@ export default function VaultCard(
       // }
     }
     code();
+    // return () => {
+    //   proxycontract.off("joinVaultEvent");
+    //   proxycontract.off("claimedNft");
+    // };
     
   }, [address, isConnected]);
   return (

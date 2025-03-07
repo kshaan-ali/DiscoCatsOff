@@ -10,6 +10,7 @@ function AdminPage() {
   const { address, isConnected } = useAppKitAccount();
   const { walletProvider }: { walletProvider: any } =
     useAppKitProvider('eip155');
+    const [pass,SetPass]=useState('')
 
   const [formData, setFormData] = useState<VaultData>({
     title: '',
@@ -299,6 +300,18 @@ function AdminPage() {
           value={formData.claimOpensIn}
           onChange={handleChange}
         />
+        <h3 className="text-xl font-semibold">Admin Password</h3>
+        <input
+          className="w-full rounded border p-2"
+          type="text"
+         
+          name="Password"
+          placeholder="Password "
+          
+          onChange={(e)=>{
+            SetPass(e.target.value)
+          }}
+        />
 
         {/* <h3 className="text-xl font-semibold">Total Supply</h3>
             {/* <input className="w-full p-2 border rounded" type="number" name="vaultSupply.current" placeholder="Current" value={formData.vaultSupply.current} onChange={handleChange} /> 
@@ -316,7 +329,7 @@ function AdminPage() {
 
               const data = await deployContract(signer, formData);
               if (data) {
-                const x=await axios.post(`${backendApi}vaults/create`,data)
+                const x=await axios.post(`${backendApi}vaults/create`,{vault:data,password:pass})
                 if(x.status==200){
 
                 }else if(x.status==500){

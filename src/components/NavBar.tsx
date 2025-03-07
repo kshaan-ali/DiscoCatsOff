@@ -24,6 +24,7 @@ const navLinks = [
   { label: 'Liquid Launch', soon: true },
   { label: 'PreSale Vaults', soon: true },
   { label: 'Bribe Wars', soon: true },
+  { label: 'TestNet Usdc Faucet', to: '/faucet' },
 ];
 const manualLinks = ['Docs', 'To Do', 'Twitter', 'Discord'];
 const chains = ['Berachain', 'Ethereum', 'Binance'];
