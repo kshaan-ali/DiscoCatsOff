@@ -2,7 +2,7 @@ export const alchemyUrl=import.meta.env.VITE_alchemyUrl//env
 export const reOwnProjectId=import.meta.env.VITE_reOwnProjectId//env
 
 export const proxyContractAddress='0x473F1Ae447CdCa9f7C4DEC87a1224Eb0d550CFA3'
-export const v2='0x138916B488683f47E8eD0f617231375C7F3CCa92'
+export const v2='0xca3aA3Ee172EC99048971B46FD574951B8e0B8a8'
 export const v2foundry='0x08b9195595614B4ADBedd9fd6321747Bc46E3187'
 export const usdcContractAddress='0x24b3d12eb92304571e95A42B03d058d1e911aEAd'
 
@@ -892,6 +892,26 @@ export const timeVaultV1Abi=[
 		"type": "error"
 	},
 	{
+		"inputs": [],
+		"name": "claimBack",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "_amount",
+				"type": "uint256"
+			}
+		],
+		"name": "depositExternalFunds",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
 		"inputs": [
 			{
 				"internalType": "address",
@@ -913,9 +933,65 @@ export const timeVaultV1Abi=[
 		"type": "error"
 	},
 	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "_nftPrice",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "_nftLimitPerAddress",
+				"type": "uint256"
+			},
+			{
+				"internalType": "address",
+				"name": "initialOwner",
+				"type": "address"
+			},
+			{
+				"internalType": "address",
+				"name": "_tokenAddress",
+				"type": "address"
+			},
+			{
+				"internalType": "uint256",
+				"name": "_nftLimit",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "_joiningPeriod",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "_claimingPeriod",
+				"type": "uint256"
+			}
+		],
+		"name": "initialize",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
 		"inputs": [],
 		"name": "InvalidInitialization",
 		"type": "error"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "_nftAmount",
+				"type": "uint256"
+			}
+		],
+		"name": "joinVault",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
 	},
 	{
 		"inputs": [],
@@ -943,6 +1019,44 @@ export const timeVaultV1Abi=[
 		],
 		"name": "OwnableUnauthorizedAccount",
 		"type": "error"
+	},
+	{
+		"inputs": [],
+		"name": "renounceOwnership",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "_nftPrice",
+				"type": "uint256"
+			}
+		],
+		"name": "setNftPrice",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "_tokenAddress",
+				"type": "address"
+			},
+			{
+				"internalType": "uint256",
+				"name": "_tokenDecimals",
+				"type": "uint256"
+			}
+		],
+		"name": "setTokenAddress",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
 	},
 	{
 		"inputs": [],
@@ -1050,16 +1164,91 @@ export const timeVaultV1Abi=[
 		"type": "event"
 	},
 	{
-		"inputs": [],
-		"name": "UPGRADE_INTERFACE_VERSION",
-		"outputs": [
+		"inputs": [
 			{
-				"internalType": "string",
-				"name": "",
-				"type": "string"
+				"internalType": "uint256",
+				"name": "_nftLimitPerAddress",
+				"type": "uint256"
 			}
 		],
-		"stateMutability": "view",
+		"name": "setNftLimitPerAddress",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "_joiningPeriod",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "_claim",
+				"type": "uint256"
+			}
+		],
+		"name": "setTimePeriod",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "newOwner",
+				"type": "address"
+			}
+		],
+		"name": "transferOwnership",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "newImplementation",
+				"type": "address"
+			}
+		],
+		"name": "upgrade",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "newImplementation",
+				"type": "address"
+			},
+			{
+				"internalType": "bytes",
+				"name": "data",
+				"type": "bytes"
+			}
+		],
+		"name": "upgradeToAndCall",
+		"outputs": [],
+		"stateMutability": "payable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "receiver",
+				"type": "address"
+			}
+		],
+		"name": "withdrawAllFunds",
+		"outputs": [],
+		"stateMutability": "nonpayable",
 		"type": "function"
 	},
 	{
@@ -1090,13 +1279,6 @@ export const timeVaultV1Abi=[
 	},
 	{
 		"inputs": [],
-		"name": "claimBack",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [],
 		"name": "claimingPeriod",
 		"outputs": [
 			{
@@ -1106,19 +1288,6 @@ export const timeVaultV1Abi=[
 			}
 		],
 		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "uint256",
-				"name": "_amount",
-				"type": "uint256"
-			}
-		],
-		"name": "depositExternalFunds",
-		"outputs": [],
-		"stateMutability": "nonpayable",
 		"type": "function"
 	},
 	{
@@ -1145,62 +1314,6 @@ export const timeVaultV1Abi=[
 			}
 		],
 		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "uint256",
-				"name": "_nftPrice",
-				"type": "uint256"
-			},
-			{
-				"internalType": "uint256",
-				"name": "_nftLimitPerAddress",
-				"type": "uint256"
-			},
-			{
-				"internalType": "address",
-				"name": "initialOwner",
-				"type": "address"
-			},
-			{
-				"internalType": "address",
-				"name": "_tokenAddress",
-				"type": "address"
-			},
-			{
-				"internalType": "uint256",
-				"name": "_nftLimit",
-				"type": "uint256"
-			},
-			{
-				"internalType": "uint256",
-				"name": "_joiningPeriod",
-				"type": "uint256"
-			},
-			{
-				"internalType": "uint256",
-				"name": "_claimingPeriod",
-				"type": "uint256"
-			}
-		],
-		"name": "initialize",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "uint256",
-				"name": "_nftAmount",
-				"type": "uint256"
-			}
-		],
-		"name": "joinVault",
-		"outputs": [],
-		"stateMutability": "nonpayable",
 		"type": "function"
 	},
 	{
@@ -1302,75 +1415,6 @@ export const timeVaultV1Abi=[
 	},
 	{
 		"inputs": [],
-		"name": "renounceOwnership",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "uint256",
-				"name": "_nftLimitPerAddress",
-				"type": "uint256"
-			}
-		],
-		"name": "setNftLimitPerAddress",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "uint256",
-				"name": "_nftPrice",
-				"type": "uint256"
-			}
-		],
-		"name": "setNftPrice",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "uint256",
-				"name": "_joiningPeriod",
-				"type": "uint256"
-			},
-			{
-				"internalType": "uint256",
-				"name": "_claim",
-				"type": "uint256"
-			}
-		],
-		"name": "setTimePeriod",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "_tokenAddress",
-				"type": "address"
-			},
-			{
-				"internalType": "uint256",
-				"name": "_tokenDecimals",
-				"type": "uint256"
-			}
-		],
-		"name": "setTokenAddress",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [],
 		"name": "tokenAddress",
 		"outputs": [
 			{
@@ -1409,47 +1453,16 @@ export const timeVaultV1Abi=[
 		"type": "function"
 	},
 	{
-		"inputs": [
+		"inputs": [],
+		"name": "UPGRADE_INTERFACE_VERSION",
+		"outputs": [
 			{
-				"internalType": "address",
-				"name": "newOwner",
-				"type": "address"
+				"internalType": "string",
+				"name": "",
+				"type": "string"
 			}
 		],
-		"name": "transferOwnership",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "newImplementation",
-				"type": "address"
-			}
-		],
-		"name": "upgrade",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "newImplementation",
-				"type": "address"
-			},
-			{
-				"internalType": "bytes",
-				"name": "data",
-				"type": "bytes"
-			}
-		],
-		"name": "upgradeToAndCall",
-		"outputs": [],
-		"stateMutability": "payable",
+		"stateMutability": "view",
 		"type": "function"
 	},
 	{
@@ -1477,16 +1490,16 @@ export const timeVaultV1Abi=[
 		"type": "function"
 	},
 	{
-		"inputs": [
+		"inputs": [],
+		"name": "yieldedFunds",
+		"outputs": [
 			{
-				"internalType": "address",
-				"name": "receiver",
-				"type": "address"
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
 			}
 		],
-		"name": "withdrawAllFunds",
-		"outputs": [],
-		"stateMutability": "nonpayable",
+		"stateMutability": "view",
 		"type": "function"
 	},
 	{
@@ -1496,32 +1509,6 @@ export const timeVaultV1Abi=[
 			{
 				"internalType": "uint256",
 				"name": "_amount",
-				"type": "uint256"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [],
-		"name": "yieldGeneratedPercentage",
-		"outputs": [
-			{
-				"internalType": "uint256",
-				"name": "_percentage",
-				"type": "uint256"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [],
-		"name": "yieldedFunds",
-		"outputs": [
-			{
-				"internalType": "uint256",
-				"name": "",
 				"type": "uint256"
 			}
 		],
